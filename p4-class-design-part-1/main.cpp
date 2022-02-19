@@ -30,6 +30,7 @@ int main() {
     
     Order itemsOrder{};
     itemsOrder.addItem(Item{ "Fun Book", 12, 1, 3 });
+    itemsOrder.addItem(Item{ "Pencils", 13, 50, 2 });
     
     std::cout << itemStore << std::endl;
     

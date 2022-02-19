@@ -113,20 +113,6 @@ void Image::setFlashEnabled(bool pFlashEnabled) {
 }
 
 // Non-member functions
-void printImageMetadata(Image img) {
-    std::cout << "File Name: " + img.getFileName() << std::endl;
-    std::cout << "Image Type: " + img.getImageType() << std::endl;
-    std::cout << "Date Created (ms since 1970): " + std::to_string(img.getDateCreated()) << std::endl;
-    std::cout << "Size (MB): " + std::to_string(img.getSize()) << std::endl;
-    std::cout << "Author: " + img.getAuthorName() << std::endl;
-    std::cout << "Width: " + std::to_string(img.getWidth()) << std::endl;
-    std::cout << "Height: " + std::to_string(img.getHeight()) << std::endl;
-    std::cout << "Aperture Size: " + img.getApertureSize() << std::endl;
-    std::cout << "Exposure Time: " + img.getExposureTime() << std::endl;
-    std::cout << "ISO Value: " + std::to_string(img.getIsoValue()) << std::endl;
-    std::cout << "Flash Enabled: " + std::string(img.getFlashEnabled() == true ? "True" : "False") << std::endl;
-}
-
 std::ostream& operator<<(std::ostream& os, const Image& img) {
     os << "File Name: " + img.getFileName() << std::endl;
     os << "Image Type: " + img.getImageType() << std::endl;

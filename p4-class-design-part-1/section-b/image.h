@@ -50,5 +50,4 @@ public:
     void setFlashEnabled(bool pFlashEnabled);
 };
 
-void printImageMetadata(Image img);
 std::ostream& operator<<(std::ostream& os, const Image& img);
