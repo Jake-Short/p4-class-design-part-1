@@ -15,5 +15,6 @@ private:
     
 public:
     void addItem(Item item);
-    double getPrice();
+    double getPrice() const;
+    std::vector<Item> getItems() const;
 };

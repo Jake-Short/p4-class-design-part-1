@@ -25,17 +25,17 @@ private:
 public:
     Image(std::string pFileName, std::string pImageType, double pDateCreated, double pSize, std::string pAuthorName, int pWidth, int pHeight, std::string pApertureSize, std::string pExposureTime, int pIsoValue, bool pFlashEnabled);
     
-    std::string getFileName();
-    std::string getImageType();
-    double getDateCreated();
-    double getSize();
-    std::string getAuthorName();
-    int getWidth();
-    int getHeight();
-    std::string getApertureSize();
-    std::string getExposureTime();
-    int getIsoValue();
-    bool getFlashEnabled();
+    std::string getFileName() const;
+    std::string getImageType() const;
+    double getDateCreated() const;
+    double getSize() const;
+    std::string getAuthorName() const;
+    int getWidth() const;
+    int getHeight() const;
+    std::string getApertureSize() const;
+    std::string getExposureTime() const;
+    int getIsoValue() const;
+    bool getFlashEnabled() const;
     
     void setFileName(std::string pFileName);
     void setImageType(std::string pImageType);
@@ -51,3 +51,4 @@ public:
 };
 
 void printImageMetadata(Image img);
+std::ostream& operator<<(std::ostream& os, const Image& img);

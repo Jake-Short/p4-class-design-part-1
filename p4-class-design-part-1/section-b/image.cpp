@@ -30,14 +30,14 @@ Image::Image(std::string pFileName, std::string pImageType, double pDateCreated,
 // Getter/setter functions
 //
 
-std::string Image::getFileName() {
+std::string Image::getFileName() const {
     return fileName;
 }
 void Image::setFileName(std::string pFileName) {
     fileName = pFileName;
 }
 
-std::string Image::getImageType() {
+std::string Image::getImageType() const {
     return imageType;
 }
 void Image::setImageType(std::string pImageType) {
@@ -49,63 +49,63 @@ void Image::setImageType(std::string pImageType) {
     }
 }
 
-double Image::getDateCreated() {
+double Image::getDateCreated() const {
     return dateCreated;
 }
 void Image::setDateCreated(double pDateCreated) {
     dateCreated = pDateCreated;
 }
 
-double Image::getSize() {
+double Image::getSize() const {
     return size;
 }
 void Image::setSize(double pSize) {
     size = pSize;
 }
 
-std::string Image::getAuthorName() {
+std::string Image::getAuthorName() const {
     return authorName;
 }
 void Image::setAuthorName(std::string pAuthorName) {
     authorName = pAuthorName;
 }
 
-int Image::getWidth() {
+int Image::getWidth() const {
     return width;
 }
 void Image::setWidth(int pWidth) {
     width = pWidth;
 }
 
-int Image::getHeight() {
+int Image::getHeight() const {
     return height;
 }
 void Image::setHeight(int pHeight) {
     height = pHeight;
 }
 
-std::string Image::getApertureSize() {
+std::string Image::getApertureSize() const {
     return apertureSize;
 }
 void Image::setApertureSize(std::string pApertureSize) {
     apertureSize = pApertureSize;
 }
 
-std::string Image::getExposureTime() {
+std::string Image::getExposureTime() const {
     return exposureTime;
 }
 void Image::setExposureTime(std::string pExposureTime) {
     exposureTime = pExposureTime;
 }
 
-int Image::getIsoValue() {
+int Image::getIsoValue() const {
     return isoValue;
 }
 void Image::setIsoValue(int pIsoValue) {
     isoValue = pIsoValue;
 }
 
-bool Image::getFlashEnabled() {
+bool Image::getFlashEnabled() const {
     return flashEnabled;
 }
 void Image::setFlashEnabled(bool pFlashEnabled) {
@@ -127,3 +127,18 @@ void printImageMetadata(Image img) {
     std::cout << "Flash Enabled: " + std::string(img.getFlashEnabled() == true ? "True" : "False") << std::endl;
 }
 
+std::ostream& operator<<(std::ostream& os, const Image& img) {
+    os << "File Name: " + img.getFileName() << std::endl;
+    os << "Image Type: " + img.getImageType() << std::endl;
+    os << "Date Created (ms since 1970): " + std::to_string(img.getDateCreated()) << std::endl;
+    os << "Size (MB): " + std::to_string(img.getSize()) << std::endl;
+    os << "Author: " + img.getAuthorName() << std::endl;
+    os << "Width: " + std::to_string(img.getWidth()) << std::endl;
+    os << "Height: " + std::to_string(img.getHeight()) << std::endl;
+    os << "Aperture Size: " + img.getApertureSize() << std::endl;
+    os << "Exposure Time: " + img.getExposureTime() << std::endl;
+    os << "ISO Value: " + std::to_string(img.getIsoValue()) << std::endl;
+    os << "Flash Enabled: " + std::string(img.getFlashEnabled() == true ? "True" : "False");
+    
+    return os;
+};

@@ -13,9 +13,27 @@ Store::Store(std::vector<Item> pItems) {
     items = pItems;
 }
 
-void Store::printItems() {
-    std::cout << "Store: " << std::endl;
-    for(int i = 0; i < items.size(); i++) {
-        std::cout << items[i].getName() << " x " << items[i].getStock() << std::endl;
+std::vector<Item> Store::getItems() const {
+    return items;
+}
+
+void Store::processOrder(const Order& order) {
+    std::vector<Item> orderItems = order.getItems();
+
+    for(Item item: orderItems) {
+        for(Item& iInStore: items) {
+            if(iInStore.getId() == item.getId()) {
+                iInStore.setStock(iInStore.getStock() - item.getStock());
+            }
+        }
     }
+}
+
+std::ostream& operator<<(std::ostream& os, const Store& store) {
+    os << std::string("Store: \n");
+    for(int i = 0; i < store.getItems().size(); i++) {
+        os << store.getItems()[i].getName() << std::string(" x ") << std::to_string(store.getItems()[i].getStock()) << std::string("\n");
+    }
+    
+    return os;
 };

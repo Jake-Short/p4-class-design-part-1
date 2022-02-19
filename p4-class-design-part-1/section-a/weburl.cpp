@@ -12,11 +12,11 @@ WebURL::WebURL(std::string urlString): url{ urlString } {
     url = urlString;
 }
 
-std::string WebURL::getFullUrl() {
+std::string WebURL::getFullUrl() const {
     return url;
 }
 
-std::string WebURL::getScheme() {
+std::string WebURL::getScheme() const {
     // Find the index of the first "/" of the "//" substring
     int slashSlashIndex = (int)url.find("//");
     std::string scheme = url.substr(0, slashSlashIndex);
@@ -24,7 +24,7 @@ std::string WebURL::getScheme() {
     return scheme;
 }
 
-std::string WebURL::getAuthority() {
+std::string WebURL::getAuthority() const {
     std::string tempUrl = url;
 
     // Find the index of the first "/" of the "//" substring
@@ -41,7 +41,7 @@ std::string WebURL::getAuthority() {
     return authority;
 };
 
-std::string WebURL::getPath() {
+std::string WebURL::getPath() const {
     std::string tempUrl = url;
 
     // Find the index of the first "/" of the "//" substring
@@ -62,3 +62,10 @@ std::string WebURL::getPath() {
 
     return path;
 };
+
+
+std::ostream& operator<<(std::ostream& os, const WebURL& url) {
+    std::string urlString = "URL: " + url.getFullUrl() + "\nSCHEME: " + url.getScheme() + "\nAUTHORITY: " + url.getAuthority() + "\nPATH: " + url.getPath();
+    os << urlString;
+    return os;
+}

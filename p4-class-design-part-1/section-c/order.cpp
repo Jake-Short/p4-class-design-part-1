@@ -12,7 +12,7 @@ void Order::addItem(Item item) {
     items.push_back(item);
 }
 
-double Order::getPrice() {
+double Order::getPrice() const {
     double price = 0;
     
     for(int i = 0; i < items.size(); i++) {
@@ -20,4 +20,8 @@ double Order::getPrice() {
     }
     
     return price;
+}
+
+std::vector<Item> Order::getItems() const {
+    return items;
 }

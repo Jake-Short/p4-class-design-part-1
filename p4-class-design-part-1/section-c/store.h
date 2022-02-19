@@ -8,6 +8,7 @@
 #pragma once
 #include "item.h"
 #include <vector>
+#include "order.h"
 
 class Store {
 private:
@@ -15,6 +16,8 @@ private:
     
 public:
     Store(std::vector<Item> pItems);
-    
-    void printItems();
+    std::vector<Item> getItems() const;
+    void processOrder(const Order& order);
 };
+
+std::ostream& operator<<(std::ostream& os, const Store& store);

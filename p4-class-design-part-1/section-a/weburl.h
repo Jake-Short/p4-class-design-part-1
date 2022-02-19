@@ -6,6 +6,7 @@
 //
 
 #pragma once
+#include <iostream>
 #include <string>
 
 class WebURL {
@@ -15,8 +16,10 @@ private:
 public:
     WebURL(std::string urlString);
     
-    std::string getFullUrl();
-    std::string getScheme();
-    std::string getAuthority();
-    std::string getPath();
+    std::string getFullUrl() const;
+    std::string getScheme() const;
+    std::string getAuthority() const;
+    std::string getPath() const;
 };
+
+std::ostream& operator<<(std::ostream& os, const WebURL& _url);

@@ -18,8 +18,12 @@ private:
 public:
     Item(std::string pName, long pId, double pPrice, int pStock);
     
-    std::string getName();
-    long getId();
-    double getPrice();
-    int getStock();
+    std::string getName() const;
+    long getId() const;
+    double getPrice() const;
+    int getStock() const;
+    
+    void setStock(int pStock);
 };
+
+std::ostream& operator<<(std::ostream& os, const Item& item);
